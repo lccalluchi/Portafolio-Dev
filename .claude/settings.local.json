@@ -1,0 +1,20 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx skills *)",
+      "WebSearch",
+      "Bash(npm install *)",
+      "Bash(npx shadcn@latest init --yes)",
+      "Bash(npx shadcn@latest init --yes --base-color slate)",
+      "Bash(npx shadcn@latest add button --yes)",
+      "Bash(npm list *)",
+      "Bash(npm uninstall *)",
+      "Bash(npx astro *)",
+      "Bash(npm run *)",
+      "Bash(npm show *)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const v=JSON.parse\\(d\\); console.log\\(v.slice\\(-10\\).join\\('\\\\n'\\)\\);\")",
+      "Bash(npx shadcn@latest add sheet --yes)"
+    ]
+  }
+}

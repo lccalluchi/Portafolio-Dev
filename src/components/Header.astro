@@ -1,6 +1,6 @@
 ---
-// Header.astro - Barra de navegación estilo Ferxxo
 import { Icon } from "astro-icon/components";
+import MobileNav from "./MobileNav.tsx";
 ---
 
 <header
@@ -105,280 +105,25 @@ import { Icon } from "astro-icon/components";
       </a> -->
     </nav>
 
-    <!-- Botón hamburguesa para móviles -->
-    <button
-      id="menuToggle"
-      class="md:hidden flex items-center justify-center w-10 h-10 focus:outline-none border border-ferxxo-pink/30 rounded-lg p-2 touch-target"
-      aria-label="Menú principal"
-      aria-expanded="false"
-    >
-      <Icon name="mdi:menu" class="h-6 w-6 text-ferxxo-pink open-icon" />
-      <Icon
-        name="mdi:close"
-        class="h-6 w-6 text-ferxxo-pink hidden close-icon"
-      />
-    </button>
-  </div>
-
-  <!-- Menú móvil -->
-  <div
-    id="mobileMenu"
-    class="hidden md:hidden fixed top-[60px] left-0 w-full bg-ferxxo-black/95 shadow-lg py-4 px-6 transition-all duration-300 ease-in-out transform opacity-0 border-t border-ferxxo-pink/20 backdrop-blur-md"
-    aria-hidden="true"
-    style="z-index: 10000 !important;"
-  >
-    <div
-      class="glitch-line absolute top-0 left-0 right-0 h-px bg-ferxxo-pink/30"
-    >
-    </div>
-
-    <nav
-      class="flex flex-col space-y-4 bg-black/80 rounded-lg border-2 border-ferxxo-pink/50 p-5 mobile-nav-glow"
-    >
-      <a
-        href="#home"
-        class="text-white hover:text-ferxxo-pink transition-colors py-3 tracking-wider font-bold uppercase touch-target relative mobile-nav-item text-lg"
-        >Inicio</a
-      >
-      <!--   <a
-        href="#about"
-        class="text-white hover:text-ferxxo-pink transition-colors py-3 tracking-wider font-bold uppercase touch-target relative mobile-nav-item text-lg"
-        >Sobre mí</a
-      > -->
-      <a
-        href="#projects"
-        class="text-white hover:text-ferxxo-pink transition-colors py-3 tracking-wider font-bold uppercase touch-target relative mobile-nav-item text-lg"
-        >Proyectos</a
-      >
-      <a
-        href="#experience"
-        class="text-white hover:text-ferxxo-pink transition-colors py-3 tracking-wider font-bold uppercase touch-target relative mobile-nav-item text-lg"
-        >Experiencia</a
-      >
-      <a
-        href="#certificates"
-        class="text-white hover:text-ferxxo-pink transition-colors py-3 tracking-wider font-bold uppercase touch-target relative mobile-nav-item text-lg"
-        >Certificados</a
-      >
-      <!--   <a
-        href="#contact"
-        class="w-full bg-ferxxo-pink/20 border-2 border-ferxxo-pink py-3 my-2 text-white font-bold text-center uppercase tracking-wider hover:bg-ferxxo-pink/30 transition-colors touch-target relative mobile-nav-item text-lg"
-      >
-        Contacto
-      </a> -->
-    </nav>
+    <!-- Menú móvil con Sheet de shadcn/ui -->
+    <MobileNav client:load />
   </div>
 </header>
 
-<style>
-  .glitch-line {
-    opacity: 0;
-    animation: glitch-line 4s infinite;
-  }
-
-  @keyframes glitch-line {
-    0% {
-      opacity: 0;
-      transform: translateX(-100%);
-    }
-    10%,
-    30% {
-      opacity: 0.5;
-    }
-    50% {
-      opacity: 0.3;
-      transform: translateX(0);
-    }
-    70%,
-    90% {
-      opacity: 0.5;
-    }
-    100% {
-      opacity: 0;
-      transform: translateX(100%);
-    }
-  }
-
-  .mobile-nav-glow {
-    box-shadow:
-      0 0 20px rgba(255, 45, 158, 0.5),
-      0 0 40px rgba(255, 45, 158, 0.3);
-    animation: mobile-nav-pulse 4s infinite alternate;
-  }
-
-  .mobile-nav-item::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: linear-gradient(
-      to right,
-      var(--ferxxo-pink),
-      var(--ferxxo-blue)
-    );
-    transition: width 0.3s ease;
-  }
-
-  .mobile-nav-item:hover::after {
-    width: 100%;
-  }
-
-  @keyframes mobile-nav-pulse {
-    0% {
-      box-shadow:
-        0 0 20px rgba(255, 45, 158, 0.5),
-        0 0 40px rgba(255, 45, 158, 0.3);
-    }
-    50% {
-      box-shadow:
-        0 0 20px rgba(0, 240, 255, 0.5),
-        0 0 40px rgba(0, 240, 255, 0.3);
-    }
-    100% {
-      box-shadow:
-        0 0 20px rgba(255, 45, 158, 0.5),
-        0 0 40px rgba(255, 45, 158, 0.3);
-    }
-  }
-
-  /* Media query para mejorar accesibilidad en pantallas pequeñas */
-  @media (max-width: 360px) {
-    .container {
-      padding-left: 0.5rem;
-      padding-right: 0.5rem;
-    }
-  }
-
-  /* Prevenimos scroll horizontal en dispositivos móviles */
-  @media (max-width: 768px) {
-    #mobileMenu {
-      overflow-y: auto;
-      max-height: calc(100vh - 70px);
-      z-index: 10000 !important;
-    }
-
-    #mobileMenu.opacity-100 {
-      display: block !important;
-    }
-
-    .mobile-nav-item {
-      position: relative;
-      overflow: hidden;
-    }
-
-    .mobile-nav-item::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      width: 100%;
-      height: 100%;
-      background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 45, 158, 0.2),
-        transparent
-      );
-      transition: left 0.5s;
-    }
-
-    .mobile-nav-item:hover::before {
-      left: 100%;
-    }
-  }
-</style>
-
 <script>
-  // Lógica para el menú móvil
-  document.addEventListener("DOMContentLoaded", () => {
-    const menuToggle = document.getElementById("menuToggle");
-    const mobileMenu = document.getElementById("mobileMenu");
-    const openIcon = document.querySelector(".open-icon");
-    const closeIcon = document.querySelector(".close-icon");
-
-    if (menuToggle && mobileMenu && openIcon && closeIcon) {
-      // Función para abrir/cerrar el menú
-      const toggleMenu = () => {
-        const isExpanded = menuToggle?.getAttribute("aria-expanded") === "true";
-        menuToggle?.setAttribute("aria-expanded", (!isExpanded).toString());
-        mobileMenu.setAttribute("aria-hidden", isExpanded.toString());
-
-        // Alternar la visibilidad del menú móvil
-        if (isExpanded) {
-          mobileMenu.classList.add("hidden");
-          mobileMenu.classList.remove("opacity-100");
-          mobileMenu.classList.add("opacity-0");
-          openIcon.classList.remove("hidden");
-          closeIcon.classList.add("hidden");
-        } else {
-          mobileMenu.classList.remove("hidden");
-          // Forzar un reflow antes de añadir la opacidad para que la animación funcione
-          void mobileMenu.offsetWidth;
-          mobileMenu.classList.add("opacity-100");
-          mobileMenu.classList.remove("opacity-0");
-          openIcon.classList.add("hidden");
-          closeIcon.classList.remove("hidden");
-        }
-      };
-
-      // Event listener para el botón de menú
-      menuToggle.addEventListener("click", toggleMenu);
-
-      // Cerrar menú al hacer clic en un enlace
-      const mobileLinks = mobileMenu.querySelectorAll("a");
-      mobileLinks.forEach((link) => {
-        link.addEventListener("click", () => {
-          if (
-            menuToggle?.getAttribute("aria-expanded") === "true" &&
-            window.innerWidth < 768
-          ) {
-            toggleMenu();
-          }
-        });
-      });
-
-      // Cerrar menú al redimensionar ventana a desktop
-      window.addEventListener("resize", () => {
-        if (
-          window.innerWidth >= 768 &&
-          menuToggle?.getAttribute("aria-expanded") === "true"
-        ) {
-          toggleMenu();
-        }
-      });
-    }
-  });
-
-  // Navegación suave
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
-    const handleClick = function (e: Event) {
+    anchor.addEventListener("click", (e: Event) => {
       e.preventDefault();
-
       const link = e.currentTarget as HTMLAnchorElement;
       const targetId = link.getAttribute("href");
-      if (targetId === "#") return;
-
-      const targetElement = document.querySelector(targetId);
-      if (targetElement) {
-        // Usar scroll padding del CSS
-        const scrollPadding = parseInt(
-          getComputedStyle(document.documentElement).getPropertyValue(
-            "--scroll-padding"
-          ) || "80px"
-        );
-
+      if (!targetId || targetId === "#") return;
+      const target = document.querySelector(targetId);
+      if (target) {
         window.scrollTo({
-          top:
-            targetElement.getBoundingClientRect().top +
-            window.scrollY -
-            scrollPadding,
+          top: target.getBoundingClientRect().top + window.scrollY - 80,
           behavior: "smooth",
         });
       }
-    };
-
-    anchor.addEventListener("click", handleClick);
+    });
   });
 </script>

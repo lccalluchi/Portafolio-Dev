@@ -1,6 +1,6 @@
 ---
-// Hero.astro - Sección principal del sitio con temática Ferxxo
 import { Icon } from "astro-icon/components";
+import HeroButton from "./HeroButton.tsx";
 ---
 
 <section
@@ -86,17 +86,7 @@ import { Icon } from "astro-icon/components";
 
           <!-- Botones de acción -->
           <div class="flex flex-wrap gap-4">
-            <a href="#experience" class="group relative">
-              <div
-                class="absolute -inset-0.5 bg-gradient-to-r from-ferxxo-pink to-ferxxo-purple rounded-lg blur opacity-70 group-hover:opacity-100 transition duration-200"
-              >
-              </div>
-              <button
-                class="relative border border-ferxxo-pink bg-ferxxo-black px-6 py-3 rounded-lg text-white font-bold uppercase tracking-wider group-hover:text-ferxxo-pink transition duration-200"
-              >
-                Ver Experiencia
-              </button>
-            </a>
+            <HeroButton client:load />
 
             <!--  <a
               href="#about"
