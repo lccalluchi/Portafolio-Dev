@@ -14,7 +14,13 @@
       "Bash(npm show *)",
       "Bash(node -e ' *)",
       "Bash(node -e \"const d=require\\('fs'\\).readFileSync\\('/dev/stdin','utf8'\\); const v=JSON.parse\\(d\\); console.log\\(v.slice\\(-10\\).join\\('\\\\n'\\)\\);\")",
-      "Bash(npx shadcn@latest add sheet --yes)"
+      "Bash(npx shadcn@latest add sheet --yes)",
+      "Skill(enhance-prompt)",
+      "Skill(ui-ux-pro-max:ui-ux-pro-max)",
+      "Bash(python3 \".claude/skills/ui-ux-pro-max/scripts/search.py\" \"developer portfolio dark cyberpunk neon premium\" --design-system -p \"Portfolio Ferxxo\" -f markdown)",
+      "Bash(python3 \"C:/Users/User/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/cli/assets/scripts/search.py\" \"developer portfolio dark cyberpunk neon premium\" --design-system -p \"Portfolio Ferxxo\" -f markdown)",
+      "Bash(python3 \"C:/Users/User/.claude/plugins/cache/ui-ux-pro-max-skill/ui-ux-pro-max/2.5.0/cli/assets/scripts/search.py\" \"portfolio hero layout typography spacing\" --domain ux -n 8)",
+      "Skill(stitch-design)"
     ]
   }
 }

@@ -5,7 +5,7 @@ import HeroButton from "./HeroButton.tsx";
 
 <section
   id="home"
-  class="relative overflow-hidden bg-ferxxo-black min-h-screen flex items-center justify-center pt-20 pb-16"
+  class="relative overflow-hidden bg-ferxxo-black min-h-[100dvh] flex items-center justify-center pt-20 pb-16"
 >
   <!-- Efecto de fondo animado con CSS -->
   <div class="absolute inset-0 z-0 bg-gradient-radial"></div>
@@ -14,55 +14,21 @@ import HeroButton from "./HeroButton.tsx";
   <div class="absolute inset-0 z-0 neon-glow-effect"></div>
 
   <!-- Elementos decorativos de fondo -->
-  <div class="absolute inset-0 z-0">
-    <div
-      class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-ferxxo-purple/20 to-transparent"
-    >
-    </div>
-    <!-- Lluvia de píxeles -->
-    <div class="absolute inset-0 overflow-hidden opacity-20">
-      <div class="pixel-rain"></div>
-    </div>
-
-    <!-- Efectos de distorsión horizontal -->
-    <div
-      class="absolute top-1/4 left-0 right-0 h-px bg-ferxxo-pink/30 glitch-line"
-    >
-    </div>
-    <div
-      class="absolute top-1/3 left-0 right-0 h-px bg-ferxxo-blue/30 glitch-line delay-300"
-    >
-    </div>
-    <div
-      class="absolute top-1/2 left-0 right-0 h-px bg-ferxxo-purple/30 glitch-line delay-700"
-    >
-    </div>
-    <div
-      class="absolute top-2/3 left-0 right-0 h-px bg-ferxxo-green/30 glitch-line delay-1100"
-    >
-    </div>
-
-    <!-- Elementos gráficos -->
-    <div
-      class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-ferxxo-pink/10 blur-3xl"
-    >
-    </div>
-    <div
-      class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-ferxxo-blue/10 blur-3xl"
-    >
-    </div>
+  <div class="absolute inset-0 z-0 pointer-events-none">
+    <div class="absolute -bottom-16 -left-16 w-64 h-64 rounded-full bg-ferxxo-pink/10 blur-3xl"></div>
+    <div class="absolute -top-16 -right-16 w-64 h-64 rounded-full bg-ferxxo-blue/10 blur-3xl"></div>
   </div>
 
   <div class="container mx-auto px-4 relative z-10">
     <div class="max-w-6xl mx-auto">
       <div class="flex flex-col md:flex-row items-center gap-10">
         <!-- Contenido textual -->
-        <div class="w-full md:w-1/2 mb-10 md:mb-0" data-aos="fade-right">
+        <div class="w-full md:w-1/2 mb-10 md:mb-0" data-aos="fade-up">
           <!-- Texto principal con efecto glitch -->
-          <h1 class="text-5xl sm:text-7xl font-extrabold mb-4 leading-none">
-            <span class="block text-4xl sm:text-6xl mt-2"> </span>
+          <h1 class="text-[clamp(3rem,7vw,4.5rem)] font-extrabold mb-4 leading-none">
+            <span class="block text-[clamp(2.5rem,5.5vw,3.75rem)] mt-2"> </span>
             <span
-              class="block text-xl sm:text-3xl mt-4 glitch-effect-subtle"
+              class="block text-[clamp(1.125rem,3vw,1.875rem)] mt-4 glitch-effect-subtle"
               data-text="Desarrollador Full Stack"
             >
               <span class="text-ferxxo-pink text-shadow-neon-pink-subtle"
@@ -76,7 +42,7 @@ import HeroButton from "./HeroButton.tsx";
           >
           </div>
 
-          <p class="text-gray-300 text-lg mb-8 max-w-xl">
+          <p class="text-gray-300 text-[clamp(1rem,2vw,1.125rem)] mb-8 max-w-xl leading-relaxed">
             ¡Hola! Soy Luis Ccalluchi López, desarrollador Full Stack con más de
             +3 años de experiencia construyendo productos digitales centrados en
             el usuario. He tenido la oportunidad de trabajar en proyectos
@@ -100,8 +66,8 @@ import HeroButton from "./HeroButton.tsx";
         <!-- Imagen/Gráfico con elementos Feid -->
         <div
           class="w-full md:w-1/2 relative"
-          data-aos="fade-left"
-          data-aos-delay="200"
+          data-aos="fade-up"
+          data-aos-delay="150"
         >
           <div class="aspect-square relative max-w-md mx-auto">
             <!-- Marco con borde distorsionado -->
@@ -832,7 +798,7 @@ import HeroButton from "./HeroButton.tsx";
           "absolute inset-0 overflow-hidden pointer-events-none z-10";
 
         // Añadir partículas
-        for (let i = 0; i < 25; i++) {
+        for (let i = 0; i < 8; i++) {
           const particle = document.createElement("div");
           const size = Math.random() * 3 + 1;
           const x = Math.random() * 100;

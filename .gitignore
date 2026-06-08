@@ -22,3 +22,14 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# local skill tooling
+.agents/
+.claude/skills/
+.stitch/
+
+# personal reference files (not part of the project)
+CV-2026.pdf
+experiencia-linkedin.md
+next-prompt.md
+DESIGN.md
